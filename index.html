@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Do You Love Me?</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Welcome Message -->
+    <h2 class="welcome-text">Welcome to "Do You Love Me?" Website ❤️</h2>
+
+    <!-- GIF -->
+    <div class="tenor-gif-embed" data-postid="22885016" data-share-method="host" data-aspect-ratio="1.04918"
+      data-width="100%">
+      <a href="https://tenor.com/view/manja-gif-22885016">Manja Sticker</a> from
+      <a href="https://tenor.com/search/manja-stickers">Manja Stickers</a>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+    <!-- Love Question -->
+    <h1>Do you love me? 🤗</h1>
+    <p>Chiku is all yours</p>
+
+    <!-- Yes/No Buttons -->
+    <div class="btn">
+      <a href="yes.html">Yes</a>
+      <a href="no1.html">No</a>
+    </div>
+
+    <!-- Download Section -->
+    <h2>Download Your Surprise Gift 🎁</h2>
+    <button class="download-btn" onclick="startDownload()">Download Now</button>
+
+    <!-- Animated Countdown Box (Initially Hidden) -->
+    <div id="download-box" class="hidden">
+      <h3>Downloading in <span id="countdown">15</span> seconds...</h3>
+      <img src="https://media1.giphy.com/media/cCakkzdotOdOxUVVfP/giphy.gif" alt="Downloading...">
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile">
+      <h2>About CyberNaveen</h2>
+      <p>CyberNaveen is an ethical hacker and cybersecurity expert dedicated to online security education.</p>
+
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="https://instagram.com/kutty_rolex_naveen" target="_blank">Instagram (Admin)</a>
+        <a href="https://instagram.com/kgf_kgf_hackers" target="_blank">Instagram (Channel)</a>
+        <a href="https://github.com/Cyberbrotemp" target="_blank">GitHub(channel)1</a>
+		  <a href="https://github.com/naveenhacking" target="_blank">GitHub-admin</a>
+        <a href="https://kgfhacker.blogspot.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function startDownload() {
+    let countdown = 15; // Start countdown at 15 seconds
+    let countdownElement = document.getElementById("countdown");
+    let downloadBox = document.getElementById("download-box");
+
+    // Show Animated Download Box
+    downloadBox.classList.remove("hidden");
+
+    // Start Voice Notification
+    let msg = new SpeechSynthesisUtterance("Download starting in 15 seconds");
+    msg.rate = 1;
+    msg.pitch = 1;
+    window.speechSynthesis.speak(msg);
+
+    // Countdown Timer
+    let timer = setInterval(() => {
+        countdown--;
+        countdownElement.innerText = countdown;
+        
+        // When countdown reaches 0, start the download
+        if (countdown === 0) {
+            clearInterval(timer);
+            downloadBox.innerHTML = "<h3>Download Starting...</h3>";
+
+            // Create a hidden download link
+            let link = document.createElement("a");
+            link.href = "https://github.com/Cyberbrotemp/do_you_love_me-/archive/refs/heads/main.zip";
+            link.download = "do_you_love_me.zip";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }, 1000); // Update every second
+}
+
+  </script>
+  <style>
+ /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9a6a6;
+  text-align: center;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin: 20px;
+}
+
+/* Welcome Text */
+.welcome-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* GIF */
+.tenor-gif-embed {
+  max-width: 200px;
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  gap: 25px;
+}
+
+.btn a {
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+  padding: 10px 25px;
+  border-radius: 66px;
+  box-shadow: 0.5rem 1rem 3rem rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.btn a:hover {
+  transform: scale(1.1);
+  background-color: #ffcc00;
+}
+
+/* Download Button */
+.download-btn {
+  background: #ff4500;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.download-btn:hover {
+  background: #ffcc00;
+  transform: scale(1.1);
+}
+
+/* Animated Download Box */
+#download-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#download-box img {
+  width: 100px;
+  margin-top: 10px;
+}
+
+/* Hide Elements */
+.hidden {
+  display: none;
+}
+
+/* Profile Section */
+.profile {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile h2 {
+  color: #111;
+}
+
+.profile p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-icons a {
+  text-decoration: none;
+  padding: 10px 15px;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #ff4500;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+  </style>
+</body>
+
+</html>
